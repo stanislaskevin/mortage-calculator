@@ -32,27 +32,40 @@ const InputContain = styled.div`
         border:1px solid transparent;
         border-radius:0.4rem;
         padding:0.5rem;
-        background:grey;
+        background:white;
         text-align:center;
+        box-shadow: 0px 2px 10px lightgrey;
 
     }
 `
 const Input = styled.div`
     display:flex;
-
+    box-shadow: 0px 5px 10px lightgrey;
+    border-radius:0.4rem;
     div {
-        border: 1px solid transparent;
-        border-radius:0.2rem 0rem 0rem 0.2rem;
-        background: lightgrey;
+        border-top:1px solid white;
+        border-left:1px solid white;
+        border-bottom:1px solid white;
+        border-right:0px solid transparent;
+        border-radius:0.4rem 0rem 0rem 0.4rem;
+        background: #F5F4FC;
         padding:0.4rem 0.6rem;
+        color:grey;
     }
 
     input {
-        border: 1px solid transparent;
-        border-radius:0rem 0.2rem 0.2rem 0rem;
-        background: yellow;
+        width:100%;
+        border-top:1px solid white;
+        border-left:0px solid white;
+        border-bottom:1px solid white;
+        border-right:1px solid white;
+        border-radius:0rem 0.4rem 0.4rem 0rem;
+        background: white;
         padding:0.4rem 0.6rem;
+        box-shadow: 0px 5px 15px #F5F4FC inset;
+        font-weight:600;
     }
+    
 `
 const Image = styled.div`
     margin: 2rem auto;
@@ -68,25 +81,30 @@ const ResultContain = styled.div`
     flex-direction:column;
     border: 1px solid transparent;
     border-radius: 0.6rem;
-    background: grey;
+    background: white;
     padding:1em 1em 0;
+    box-shadow: 0px 5px 10px lightgrey;
 
-    span {
+    div {
         margin:0 0 1rem;
         display:flex;
         align-items:center;
     }
 
-    span > div {
+    div > div {
         border:1px solid transparent;
         border-radius: 0.1rem;
         background: red;
         padding:0.2rem;
-        margin-right:0.2rem;
+        margin:0.1rem 0.2rem 0 0;
+    }
+
+    span {
+        
     }
 
     .interetColor {
-        background: yellow;
+        background: #FF645A;
     }
 `
 
@@ -132,26 +150,32 @@ const FormContainer = () => {
                     <label>Montant du bien</label>
                     <Input>
                         <div>€</div>
-                        <input placeholder="10000" type="text" onChange={(e) => setMontantBien(e.target.value)}/>
+                        <input placeholder="100000" type="text" onChange={(e) => setMontantBien(e.target.value)}/>
                     </Input>
                 </InputContain>
                 <Image>
                     <img src={Donuts} />
                 </Image>
                 <ResultContain>
-                    <span><div></div> Mensualités: {numeral(resultat).format("0,0")} €/ mois</span>
-                    <span><div className="interetColor"></div> Coût des intérets: {numeral(coutInteret).format("0,0")} €/ mois</span>
+                    <div>
+                        <div></div>
+                        <span>Mensualités: <b>{numeral(resultat).format("0,0")} €/ mois</b></span>
+                    </div>
+                    <div>
+                        <div className="interetColor"></div>
+                        <span>Coût des intérets:<b> {numeral(coutInteret).format("0,0")} €/ mois</b></span>
+                    </div>
                 </ResultContain>
             </FormContain>
             <FormContain>
                 <InputContain>
                     <label>Montant de l'apport</label>
-                    <input type="text" onChange={(e) => setMontantApport(e.target.value)}/>
-                    <p>{montantApport} € - {numeral(pourcentageApport).format("0,0.00")}% prix</p>
+                    <input placeholder="20000" type="text" onChange={(e) => setMontantApport(e.target.value)}/>
+                    <p>{montantApport} € - {numeral(pourcentageApport).format("0,0")}% prix</p>
                 </InputContain>
                 <InputContain>
                     <label>Durée de</label>
-                    <input type="text" onChange={(e) => setDuree(e.target.value)}/>
+                    <input placeholder="20" type="text" onChange={(e) => setDuree(e.target.value)}/>
                     <p>Durée de {duree} ans</p>
                 </InputContain>
                 <InputContain>
