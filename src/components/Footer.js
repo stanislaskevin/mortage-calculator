@@ -6,7 +6,7 @@ const Container = styled.div`
     justify-content: center;
     
     span {
-        position: absolute;
+        position: relative;
         bottom:0;
     }   
 `; 

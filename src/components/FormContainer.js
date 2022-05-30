@@ -150,7 +150,7 @@ const FormContainer = () => {
                     <label>Montant du bien</label>
                     <Input>
                         <div>€</div>
-                        <input placeholder="100000" type="text" onChange={(e) => setMontantBien(e.target.value)}/>
+                        <input placeholder="100000" type="number" onChange={(e) => setMontantBien(e.target.value)}/>
                     </Input>
                 </InputContain>
                 <Image>
@@ -170,17 +170,17 @@ const FormContainer = () => {
             <FormContain>
                 <InputContain>
                     <label>Montant de l'apport</label>
-                    <input placeholder="20000" type="text" onChange={(e) => setMontantApport(e.target.value)}/>
+                    <input placeholder="20000" type="number" onChange={(e) => setMontantApport(e.target.value)}/>
                     <p>{montantApport} € - {numeral(pourcentageApport).format("0,0")}% prix</p>
                 </InputContain>
                 <InputContain>
                     <label>Durée de</label>
-                    <input placeholder="20" type="text" onChange={(e) => setDuree(e.target.value)}/>
+                    <input placeholder="20" type="number" onChange={(e) => setDuree(e.target.value)}/>
                     <p>Durée de {duree} ans</p>
                 </InputContain>
                 <InputContain>
                     <label>Taux d'interêt</label>
-                    <input placeholder="1.65" type="text" onChange={(e) => setTauxInteret(e.target.value)}/>
+                    <input placeholder="1.65" type="number" onChange={(e) => setTauxInteret(e.target.value)}/>
                     <p>{tauxInteret} %</p>
                 </InputContain>
             </FormContain>
